@@ -21,8 +21,8 @@ public class Part2 {
 		ArrayList<String> instructions = new ArrayList<>(lines);
 		int instructionNumber = 0;
 
-		System.out.println("Start");
-		System.out.println(registers);
+		//System.out.println("Start");
+		//System.out.println(registers);
 
 		int lineCount = 0;
 
@@ -30,7 +30,7 @@ public class Part2 {
 			String instruction = instructions.get(instructionNumber);
 			String operation = instruction.split(" ")[0];
 			String register = instruction.split(" ")[1];
-			System.out.println((instructionNumber + 1) + ": " + instruction);
+			//System.out.println((instructionNumber + 1) + ": " + instruction);
 			switch (operation) {
 				case "set":
 					String value = instruction.split(" ")[2];
@@ -40,7 +40,7 @@ public class Part2 {
 					} else {
 						registers.put(register, registers.get(value));
 					}
-					System.out.println(registers);
+					//System.out.println(registers);
 					break;
 				case "sub":
 					value = instruction.split(" ")[2];
@@ -50,7 +50,10 @@ public class Part2 {
 					} else {
 						registers.put(register, registers.get(register) - registers.get(value));
 					}
-					System.out.println(registers);
+					
+					if (register.equals("h")) {
+						//System.out.println(registers);
+					}
 					break;
 				case "mul":
 					value = instruction.split(" ")[2];
@@ -60,7 +63,7 @@ public class Part2 {
 					} else {
 						registers.put(register, registers.get(register) * registers.get(value));
 					}
-					System.out.println(registers);
+					//System.out.println(registers);
 					break;
 				case "jnz":
 					value = instruction.split(" ")[1];
@@ -80,13 +83,9 @@ public class Part2 {
 
 			}
 			instructionNumber++;
-			lineCount++;
-			if (lineCount > 10000) {
-				break;
-			}
 		}
 
-		System.out.println("Register h: " + registers.get("h"));
-		System.out.println("Done!");
+		//System.out.println("Register h: " + registers.get("h"));
+		//System.out.println("Done!");
 	}
 }
